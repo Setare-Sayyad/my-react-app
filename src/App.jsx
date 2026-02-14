@@ -51,7 +51,7 @@ function App() {
   };
 
   const deleteTask = (index) => {
-    // remove the task at this index
+    
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
   };
@@ -67,6 +67,10 @@ function App() {
         type="text"
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            addTask(); 
+          } }}
         placeholder="Enter a task..."
         style={{ backgroundColor: "lightgray", color: "black" }}
       />
